@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import connectDB from './config/db.js';
 
+
+import commentRoutes from './routes/comment_routes.js';
+
 // Load environment variables
 dotenv.config();
 
@@ -21,6 +24,8 @@ connectDB();
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
+
+app.use('/', commentRoutes);
 
 
 // Start server
